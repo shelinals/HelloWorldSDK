@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1110"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# CocoaPods&#10;if [ -d &quot;${PROJECT_DIR}/Pods/Pilgrim&quot; ]; then&#10;    find ${PROJECT_DIR}/Pods/Pilgrim/Pilgrim-2*/Pilgrim.framework/Modules/Pilgrim.swiftmodule/ -type f -name &apos;*.swiftinterface&apos; -exec sed -i &apos;&apos; s/&apos;@_inheritsConvenienceInitializers &apos;// {} +&#10;    find ${PROJECT_DIR}/Pods/Pilgrim/Pilgrim-2*/Pilgrim.framework/Modules/Pilgrim.swiftmodule/ -type f -name &apos;*.swiftinterface&apos; -exec sed -i &apos;&apos; s/&apos;@_hasMissingDesignatedInitializers &apos;// {} +&#10;fi&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,9 +23,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BA5F4E41231413D3008FD93A"
-               BuildableName = "HelloWorldSDK.framework"
-               BlueprintName = "HelloWorldSDK"
+               BlueprintIdentifier = "BA8FFEF323152BAC00385715"
+               BuildableName = "HelloWorldExampleApp.app"
+               BlueprintName = "HelloWorldExampleApp"
                ReferencedContainer = "container:HelloWorldSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,26 +36,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BA8FFEF323152BAC00385715"
-            BuildableName = "HelloWorldExampleApp.app"
-            BlueprintName = "HelloWorldExampleApp"
-            ReferencedContainer = "container:HelloWorldSDK.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BA514F992314473F00242BCB"
-               BuildableName = "HelloWorldSDKTests.xctest"
-               BlueprintName = "HelloWorldSDKTests"
-               ReferencedContainer = "container:HelloWorldSDK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -76,15 +66,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BA5F4E41231413D3008FD93A"
-            BuildableName = "HelloWorldSDK.framework"
-            BlueprintName = "HelloWorldSDK"
+            BlueprintIdentifier = "BA8FFEF323152BAC00385715"
+            BuildableName = "HelloWorldExampleApp.app"
+            BlueprintName = "HelloWorldExampleApp"
             ReferencedContainer = "container:HelloWorldSDK.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -7,16 +7,42 @@
 //
 
 import UIKit
+import Pilgrim
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+  var locationManager: CLLocationManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
+        // Setup core location
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        
+        // Setup Pilgrim
+        PilgrimManager.shared().isDebugLogsEnabled = true
+        PilgrimManager.shared().shouldDisableAdIdentitySharing = true
+        PilgrimManager.shared().configure(withConsumerKey: "SJZHJCTYCTJYUVTI3N1UZ5PUXQLAF3O5Z354YUCKDZ5NNMRL", secret: "U31H2OLN52RIL3125MAIINGI3KWMTEYYOF5IP2YSXKKBI0A4", delegate: self, completion: nil)
+        PilgrimManager.shared().userInfo.setUserId("shelina")
+      
         return true
+    }
+  
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+      if CLLocationManager.locationServicesEnabled() {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined, .authorizedWhenInUse:
+          manager.requestAlwaysAuthorization()
+        case .authorizedAlways:
+          print("Hello Start")
+          PilgrimManager.shared().start()
+        default:
+          break
+        }
+      }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,7 +66,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
+extension AppDelegate : PilgrimManagerDelegate {
+  // Primary visit handler:
+  func pilgrimManager(_ pilgrimManager: PilgrimManager, handle visit: Visit) {
+    // Process the visit however you'd like:
+    print("\(visit.hasDeparted ? "Departure from" : "Arrival at") \(visit.venue != nil ? visit.venue!.name : "Unknown venue."). Added a Pilgrim visit at: \(visit.displayName)")
+  }
 
+  // Optional: If visit occurred without network connectivity
+  func pilgrimManager(_ pilgrimManager: PilgrimManager, handleBackfill visit: Pilgrim.Visit) {
+    // Process the visit however you'd like:
+    print("Backfill \(visit.hasDeparted ? "departure from" : "arrival at") \(visit.venue != nil ? visit.venue!.name : "Unknown venue."). Added a Pilgrim backfill visit at: \(visit.displayName)")
+  }
+
+  // Optional: If visit occurred by triggering a geofence
+  func pilgrimManager(_ pilgrimManager: PilgrimManager, handle geofenceEvents: [GeofenceEvent]) {
+    // Process the geofence events however you'd like. Here we loop through the potentially multiple geofence events and handle them individually:
+    geofenceEvents.forEach { geofenceEvent in
+      print(geofenceEvent)
+    }
+  }
 }
 

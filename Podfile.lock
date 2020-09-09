@@ -1,16 +1,23 @@
 PODS:
   - HelloWorldSDK (0.0.1)
+  - Pilgrim (2.4.2)
 
 DEPENDENCIES:
   - HelloWorldSDK (from `.`)
+  - Pilgrim (~> 2.4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Pilgrim
 
 EXTERNAL SOURCES:
   HelloWorldSDK:
     :path: "."
 
 SPEC CHECKSUMS:
-  HelloWorldSDK: 859d7a1f43d44e15580dbf45d46e70729d08ea43
+  HelloWorldSDK: 6cacf94638f8575aa7e19430401e7e9827e5f0d7
+  Pilgrim: ff39343c697b4b4c4938aacba3efe8b5b9e36fb6
 
-PODFILE CHECKSUM: 7de8c843e58f165de274d48233aa28d96bb2c2a8
+PODFILE CHECKSUM: 5734872d17807ee24182a6e5f5f283e06265f45e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.4
