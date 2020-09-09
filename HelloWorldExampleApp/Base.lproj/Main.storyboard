@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,39 +16,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHZ-dH-dxa">
-                                <rect key="frame" x="143" y="295" width="129" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Open Debug Menu"/>
-                                <connections>
-                                    <action selector="debugMenuDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VSh-9f-bGf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTL-ZG-MW6">
-                                <rect key="frame" x="161" y="399" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Fire Test Visit"/>
-                                <connections>
-                                    <action selector="testVisitDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwC-UO-cgX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-kf-LhE">
-                                <rect key="frame" x="136" y="500" width="144" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get Current Location"/>
-                                <connections>
-                                    <action selector="currentLocDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j77-yg-ama"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="current loc" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nms-5k-U0W">
-                                <rect key="frame" x="166" y="538" width="83" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mhI-Jp-9a6">
+                                <rect key="frame" x="135" y="393" width="144" height="110.33333333333331"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHZ-dH-dxa">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
+                                        <state key="normal" title="Open Debug Menu"/>
+                                        <connections>
+                                            <action selector="debugMenuDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VSh-9f-bGf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTL-ZG-MW6">
+                                        <rect key="frame" x="0.0" y="30" width="144" height="30"/>
+                                        <state key="normal" title="Fire Test Visit"/>
+                                        <connections>
+                                            <action selector="testVisitDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwC-UO-cgX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-kf-LhE">
+                                        <rect key="frame" x="0.0" y="60" width="144" height="30"/>
+                                        <state key="normal" title="Get Current Location"/>
+                                        <connections>
+                                            <action selector="currentLocDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j77-yg-ama"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current loc" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nms-5k-U0W">
+                                        <rect key="frame" x="0.0" y="90" width="144" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mhI-Jp-9a6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5oy-uw-NZM"/>
+                            <constraint firstItem="mhI-Jp-9a6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dvr-FQ-ixI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
